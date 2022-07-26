@@ -1,0 +1,60 @@
+This Information Regarding the following assignment of BSc (Hons) in Information Technology Specialising in Cyber Security Y2 1st semester of 
+Sri Lanka Institute of Information Technology (SLIIT) by Rithma Keshan(-ZyberX)
+
+Question 01
+1. You need to change the permission for the file 'myApp.c' as follows,
+User : Read, Write, Execute
+Group : Read, Execute
+Others : Read
+(i). What is the command you will use to do the changes (You may use Normal 
+method or Octal values)
+(ii). What is the command to check the permissions allocated files in current folder?
+2. Consider the following program
+(i). How many processes (including parent process) will be created in the system upon 
+the execution.
+(ii). How many printf statements will be executed on terminal according to the give 
+order. 
+ (iii). How many processes will execute the date command
+main(){
+printf(“Here comes the date. \n”);
+printf(“Here it is. \n”)
+fork();
+fork();
+fork();
+execl(“/bin/date”, “date”, 0);
+printf(“That was the date. \n”);
+printf(“Program will exit now. \n”);
+}
+Year 2 Semester 1 2021
+________________________________________________________________________________________________
+Secure Operating Systems IE2032 Page 2 12-Aug-21 
+Question 02
+1. Consider the following program.
+#include <pthread.h>
+#define NUM_THREADS 3
+int myFunction(int x)
+{
+printf("I got number %2d. My TID is %u\n", x, pthread_self());
+pthread_exit(0);
+}
+int main () {
+pthread_attr_t thread_attr;
+pthread_t tids[NUM_THREADS];
+int x = 5;
+pthread_attr_init (&thread_attr);
+pthread_create (&tids[0], &thread_attr, myFunction, x);
+pthread_create (&tids[1], &thread_attr, myFunction, x);
+printf ("Waiting for threads to finish\n");
+for (x = 0; x < NUM_THREADS-1; x++){
+pthread_join (tids[x], NULL);
+}
+printf ("All treads are now finished\n");
+}
+i)How many threads are being created in this program?
+ii)What is the output of pthread_self()?
+iii)What is the need of having pthread_join() function?
+iv) Write the complete command you will need to compile the above program 
+using 'cc' compiler.
+Consider followng details:
+file name = myThreadApp.c
+executable name = MTApp
